@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   BrowserRouter,
   Routes,
@@ -8,18 +9,31 @@ import {
 } from "react-router-dom";
 import { homeContent, sdgs } from "./data/sdgData";
 
-
 const asset = (fileName) => `/assets/${fileName}`;
+
+function MobileHeader({ onOpen }) {
+  return (
+    <header className="mobile-header">
+      <div className="mobile-brand">
+        <img src={asset("pnu-logo.png")} alt="PNU Logo" />
+        <div>
+          <strong>PNUSL SDG</strong>
+          <span>Philippine Normal University South Luzon</span>
+        </div>
+      </div>
+
+      <button className="mobile-menu-btn" type="button" onClick={onOpen}>
+        ☰
+      </button>
+    </header>
+  );
+}
 
 function Header() {
   return (
     <header className="top-header">
       <div className="header-brand">
-        <img
-          src={asset("pnu-logo.png")}
-          alt="PNU Logo"
-          className="header-logo"
-        />
+        <img src={asset("pnu-logo.png")} alt="PNU Logo" className="header-logo" />
 
         <div className="header-text">
           <p>Nurturing Teachers. Inspiring Lives.</p>
@@ -30,16 +44,12 @@ function Header() {
   );
 }
 
-function Sidebar() {
+function Sidebar({ isOpen, onClose }) {
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${isOpen ? "open" : ""}`}>
       <div className="sidebar-top">
         <div className="sidebar-brand">
-          <img
-            src={asset("pnu-logo.png")}
-            alt="PNU Logo"
-            className="sidebar-logo"
-          />
+          <img src={asset("pnu-logo.png")} alt="PNU Logo" className="sidebar-logo" />
 
           <div>
             <h2>PNU</h2>
@@ -47,10 +57,14 @@ function Sidebar() {
             <p>SOUTH LUZON</p>
           </div>
         </div>
+
+        <button className="mobile-close-btn" type="button" onClick={onClose}>
+          ×
+        </button>
       </div>
 
       <nav className="side-nav">
-        <NavLink to="/" end className="home-link">
+        <NavLink to="/" end className="home-link" onClick={onClose}>
           <div className="home-icon">▦</div>
 
           <div>
@@ -67,6 +81,7 @@ function Sidebar() {
               to={`/sdg/${sdg.id}`}
               className="sdg-link"
               style={{ "--sdg-color": sdg.color }}
+              onClick={onClose}
             >
               <img
                 src={asset(`sdg-${sdg.id}.png`)}
@@ -106,7 +121,7 @@ function Footer() {
         <p>
           Mañago Ext. Brgy. Magsaysay,
           <br />
-          Lopez, Philippines, 4316
+          Lopez, Quezon, Philippines, 4316
         </p>
       </div>
 
@@ -139,10 +154,7 @@ function HomePage() {
       </section>
 
       <section className="sdg-full-card">
-        <img
-          src={asset("sdg-full.png")}
-          alt="Sustainable Development Goals"
-        />
+        <img src={asset("sdg-full.png")} alt="Sustainable Development Goals" />
       </section>
 
       <section className="sdg-directory-section">
@@ -177,8 +189,7 @@ function HomePage() {
             responsibility. Through quality education, research, extension,
             innovation, environmental stewardship, and community engagement, the
             university continues to nurture future educators and leaders who act
-            with integrity, compassion, and responsibility for people and the
-            planet.
+            with integrity, compassion, and responsibility for people and the planet.
           </p>
         </div>
 
@@ -197,10 +208,7 @@ function SDGPage() {
   }
 
   return (
-    <main
-      className="page-content sdg-page"
-      style={{ "--active-color": sdg.color }}
-    >
+    <main className="page-content sdg-page" style={{ "--active-color": sdg.color }}>
       <section className="sdg-heading">
         <img
           src={asset(`sdg-${sdg.id}.png`)}
@@ -250,9 +258,18 @@ function SDGPage() {
 }
 
 function Layout() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const openSidebar = () => setIsSidebarOpen(true);
+  const closeSidebar = () => setIsSidebarOpen(false);
+
   return (
     <div className="site-shell">
-      <Sidebar />
+      <MobileHeader onOpen={openSidebar} />
+
+      {isSidebarOpen && <div className="mobile-overlay" onClick={closeSidebar}></div>}
+
+      <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
 
       <div className="main-area">
         <Header />
