@@ -132,7 +132,7 @@ function Footer() {
       </div>
 
       <div className="footer-right">
-        <p>© 2024 Philippine Normal University South Luzon.</p>
+        <p>© 2026 Philippine Normal University South Luzon.</p>
         <p>All rights reserved.</p>
       </div>
     </footer>
