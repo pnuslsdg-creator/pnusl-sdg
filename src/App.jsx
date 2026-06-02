@@ -15,7 +15,6 @@ function MobileHeader({ onOpen }) {
   return (
     <header className="mobile-header">
       <div className="mobile-brand">
-        <img src={asset("pnu-logo.png")} alt="PNU Logo" />
         <div>
           <strong>PNUSL SDG</strong>
           <span>Philippine Normal University South Luzon</span>
@@ -33,11 +32,8 @@ function Header() {
   return (
     <header className="top-header">
       <div className="header-brand">
-        <img src={asset("pnu-logo.png")} alt="PNU Logo" className="header-logo" />
-
         <div className="header-text">
-          <p>Nurturing Teachers. Inspiring Lives.</p>
-          <span>Building a Better Normal.</span>
+          <p>Philippine Normal University South Luzon</p>
         </div>
       </div>
     </header>
@@ -49,10 +45,7 @@ function Sidebar({ isOpen, onClose }) {
     <aside className={`sidebar ${isOpen ? "open" : ""}`}>
       <div className="sidebar-top">
         <div className="sidebar-brand">
-          <img src={asset("pnu-logo.png")} alt="PNU Logo" className="sidebar-logo" />
-
           <div>
-            <h2>PNU</h2>
             <p>PHILIPPINE NORMAL UNIVERSITY</p>
             <p>SOUTH LUZON</p>
           </div>
@@ -126,7 +119,14 @@ function Footer() {
       </div>
 
       <div className="footer-socials">
-        <span>f</span>
+        <a
+         href="https://www.facebook.com/pnusouthluzon"
+         target="_blank"
+         rel="noopener noreferrer"
+        >
+          <span>f</span>
+       </a>
+
         <span>▶</span>
         <span>◎</span>
       </div>
@@ -192,8 +192,6 @@ function HomePage() {
             with integrity, compassion, and responsibility for people and the planet.
           </p>
         </div>
-
-        <img src={asset("pnu-logo.png")} alt="PNU Logo" />
       </section>
     </main>
   );
