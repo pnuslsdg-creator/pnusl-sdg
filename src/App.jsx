@@ -127,7 +127,14 @@ function Footer() {
           <span>f</span>
        </a>
 
-        <span>▶</span>
+        <a
+         href="https://www.youtube.com/@pnusouthluzon3513"
+         target="_blank"
+         rel="noopener noreferrer"
+        >
+          <span>▶</span>
+       </a>
+
         <span>◎</span>
       </div>
 
