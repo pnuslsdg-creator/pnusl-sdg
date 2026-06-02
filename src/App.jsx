@@ -15,6 +15,7 @@ function MobileHeader({ onOpen }) {
   return (
     <header className="mobile-header">
       <div className="mobile-brand">
+         <img src={asset("pnu-logo.png")} alt="PNU Logo" />
         <div>
           <strong>PNUSL SDG</strong>
           <span>Philippine Normal University South Luzon</span>
@@ -45,11 +46,14 @@ function Sidebar({ isOpen, onClose }) {
     <aside className={`sidebar ${isOpen ? "open" : ""}`}>
       <div className="sidebar-top">
         <div className="sidebar-brand">
+          <img src={asset("pnu-logo.png")} alt="PNU Logo" className="sidebar-logo" />
+
           <div>
-            <p>PHILIPPINE NORMAL UNIVERSITY</p>
+            <p><br></br>PHILIPPINE NORMAL UNIVERSITY</p>
             <p>SOUTH LUZON</p>
           </div>
         </div>
+
 
         <button className="mobile-close-btn" type="button" onClick={onClose}>
           ×
@@ -127,14 +131,7 @@ function Footer() {
           <span>f</span>
        </a>
 
-        <a
-         href="https://www.youtube.com/@pnusouthluzon3513"
-         target="_blank"
-         rel="noopener noreferrer"
-        >
-          <span>▶</span>
-       </a>
-
+        <span>▶</span>
         <span>◎</span>
       </div>
 
