@@ -614,6 +614,17 @@ a {
   border-left: 1px solid rgba(255, 255, 255, 0.35);
 }
 
+.footer-socials a {
+  color: inherit;           /* default color */
+  text-decoration: none;    /* remove underline */
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-socials a:hover span {
+  color: #3b5998;           /* FB blue on hover */
+  transform: scale(1.1);    /* slight enlarge on hover */
+}
+
 .footer-socials span {
   font-size: 28px;
   font-weight: 800;
