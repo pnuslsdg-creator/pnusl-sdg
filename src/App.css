@@ -239,8 +239,7 @@ a {
   margin: 0;
   color: var(--text-blue);
   font-family: Georgia, "Times New Roman", serif;
-  font-style: italic;
-  font-size: 20px;
+  font-size: 40px;
   font-weight: 700;
 }
 
@@ -270,7 +269,7 @@ a {
 .title-section h1 {
   margin: 0;
   color: var(--text-blue);
-  font-size: 48px;
+  font-size: 30px;
   line-height: 1.05;
   font-weight: 800;
   letter-spacing: 0.5px;
