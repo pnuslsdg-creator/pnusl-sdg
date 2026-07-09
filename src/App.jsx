@@ -34,7 +34,7 @@ function Header() {
     <header className="top-header">
       <div className="header-brand">
         <div className="header-text">
-          <p>The Technology and Livelihood Education Hub</p>
+          <p>The The Technology and Livelihood Education Hub</p>
         </div>
       </div>
     </header>
